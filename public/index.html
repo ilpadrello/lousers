@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <form
+      action="/users/new-user/"
+      method="POST"
+      enctype="application/x-www-form-urlencoded"
+    >
+      email:<input type="text" id="email" /> password:<input
+        type="password"
+        name="password"
+        id="password"
+      />
+      <input type="button" value="INVIA" onclick="sendInfo()" />
+    </form>
+    <div id="demo"></div>
+    <script>
+      function sendInfo() {
+        let test = {
+          email: $("#email").val(),
+          password: $("#password").val()
+        };
+        $.ajax({
+          url: "/users/login",
+          type: "post",
+          //dataType: "json",
+          contentType: "application/json",
+          success: data => {
+            console.log(data);
+            alert("porco dio funziona");
+          },
+          error: function(data) {
+            alert("porco dio c'é un errore ");
+          },
+          data: JSON.stringify(test)
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,173 @@
+[
+    {
+        "id": 10,
+        "name": "viewer",
+        "extends": false,
+        "comment": "The lowest access for a user, he can only see databases and update his own infos, he can not change card status",
+        "cards": {
+            "read": "group"
+        },
+        "users": {
+            "read": "own",
+            "update_basic": "own"
+        },
+        "cards_log": {
+            "read": "group"
+        }
+    },
+    {
+        "id": 20,
+        "name": "User",
+        "comment": "The Normal User, can change the db cards status, but he can not print cards (Employée level)",
+        "extends": [
+            10
+        ],
+        "cards": {
+            "change_card_status": "group"
+        },
+        "exceptions": {
+            "cards": {
+                "export_csv": "group",
+                "start_db_check": "group",
+                "stop_db_check": "group",
+                "do_db_check": "group"
+            }
+        }
+    },
+    {
+        "id": 30,
+        "name": "SuperUser",
+        "comment": "The Super User has all the normal Usere capability and the ability to print new cards, he can create new users, and read global_log (Team Leader Level)",
+        "extends": [
+            20
+        ],
+        "users": {
+            "create": "lower",
+            "update_basic": "group",
+            "read": "group",
+            "delete": "group",
+            "update_permissions": "lower",
+            "assign_to_group": "group"
+        },
+        "cards": {
+            "export_csv": "group",
+            "start_db_check": "group",
+            "stop_db_check": "group",
+            "do_db_check": "group"
+        },
+        "global_log": {
+            "read": "group"
+        },
+        "statistics": {
+            "read": "group"
+        },
+        "exceptions": {
+            "users": {
+                "create": "same_level",
+                "update_advaced": "group",
+                "update_permissions": "same_level"
+            },
+            "groups": {
+                "create": "own",
+                "read": "own",
+                "update": "own",
+                "delete": "own"
+            }
+        }
+    },
+    {
+        "id": 40,
+        "name": "Manager",
+        "extends": [
+            30
+        ],
+        "comment": "The Manager can create new cards Databases, modify the existing one or transfer them, and also can create other managers, and new groups",
+        "users": {
+            "read": "group",
+            "update_advaced": "group",
+            "create": "same_level",
+            "update_permissions": "same_level"
+        },
+        "cards": {
+            "create": "own",
+            "update": "own",
+            "delete": "own",
+            "transfer": "own"
+        },
+        "groups": {
+            "create": "own",
+            "read": "own",
+            "update": "own",
+            "delete": "own"
+        }
+    },
+    {
+        "id": 50,
+        "name": "Admin",
+        "extends": [
+            40
+        ],
+        "comment": "Admin can do admin stuffs",
+        "users": {
+            "read": "same_level",
+            "create": "same_level",
+            "update_basic": "same_level",
+            "update_advaced": "same_level",
+            "update_permissions": "same_level",
+            "delete": "same_level",
+            "assign_to_group": "same_level"
+        },
+        "cards": {
+            "read": "all",
+            "create": "all",
+            "update": "all",
+            "delete": "all",
+            "transfer": "all",
+            "export_csv": "all",
+            "change_card_status": "all",
+            "start_db_check": "all",
+            "stop_db_check": "all",
+            "do_db_check": "all"
+        },
+        "cards_log": {
+            "read": "all",
+            "delete": "all"
+        },
+        "global_log": {
+            "read": "all",
+            "delete": "all"
+        },
+        "groups": {
+            "create": "all",
+            "read": "all",
+            "update": "all",
+            "delete": "all"
+        }
+    },
+    {
+        "id": 70,
+        "name": "GOD",
+        "comment": "Migthy and POWERFULL",
+        "extends": [
+            50
+        ],
+        "users": {
+            "read": "all",
+            "create": "all",
+            "update_basic": "all",
+            "update_advaced": "all",
+            "update_permissions": "all",
+            "delete": "all",
+            "assign_to_group": "all"
+        },
+        "cards_log": {
+            "read": "all",
+            "update": "all",
+            "create": "all"
+        },
+        "global_log": {
+            "create": "all",
+            "update": "all"
+        }
+    }
+]

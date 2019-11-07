@@ -1,0 +1,2 @@
+GROUPS
+- GroupName: //STRING(50) This is the name of the group

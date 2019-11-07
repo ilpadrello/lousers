@@ -1,0 +1,12 @@
+User:
+- Id //INT cast id 
+-Name //STRING(50) Cast first name
+-Surname //STRING(50) Cast family name
+-department //STRING(50) department where the cast work
+-email //STRING(50) the business cast mail
+-password //STRING(50) password to access
+-role //STRING This can be only Admin/Manager/SuperUser/User/View
+-permissions //ArrayOfIntegers This is an array of integers that contains all the permissions
+-groups //ArrayOfStrings containing all groups for this user
+-manager //STRING(50) The Username of the manager linked to him -None if he is the manager
+-status //STRING(50) Controlled/Active/etc

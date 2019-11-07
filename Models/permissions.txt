@@ -1,0 +1,33 @@
+
+//100 User Related permissions 
+//200 Database Related permissions
+//300 Log/Statistics Related permissions
+//400 Groups Related Permissions
+
+- Create new Users at your own level
+- Eliminate your account
+- Promote a user to a role of manager
+- Create new Users
+- Modify another User
+- Modify another User permissions 
+- Reset another User password
+- Modify yourself (username,password)
+- Modify your id number
+- Eliminate an User at your own level
+- Eliminate an User
+- Read other users informations
+- Create New card Database
+- Modify a card Database
+- Eliminate a card Database
+- Read a card Database
+- Share a database or add-remove users in groups
+- Read Global LOG
+- Read card database LOG
+- Read/Download Statistics
+- Starting a process of database check
+- Ending a process of database check
+- Doing a database check
+- Exporting .CSV for printing
+- Creating a new Group of Users
+- Eliminating e group of Users
+
